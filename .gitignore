@@ -6,6 +6,8 @@ build/
 # JetBrains IDE files
 # see https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 
+out/
+
 # IntelliJ Gradle files
 .idea/**/gradle.xml
 .idea/**/libraries/
