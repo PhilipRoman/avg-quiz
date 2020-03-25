@@ -16,7 +16,7 @@ public final class Question {
 	}
 
 	@NotNull
-	public List<@NotNull Answer> getAnswers() {
+	public List<@NotNull Answer> answers() {
 		return answers;
 	}
 

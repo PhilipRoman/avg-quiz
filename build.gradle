@@ -47,3 +47,11 @@ dependencies {
 runtime {
 	options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
 }
+
+tasks.withType(JavaCompile) {
+	options.compilerArgs += ['-encoding', 'utf8']
+}
+
+tasks.withType(JavaExec) {
+	jvmArgs += ['-Dfile.encoding=UTF-8']
+}

@@ -13,7 +13,7 @@ public final class Answer {
 	}
 
 	@NotNull
-	public String getText() {
+	public String text() {
 		return text;
 	}
 
