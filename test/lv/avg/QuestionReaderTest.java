@@ -14,12 +14,13 @@ public class QuestionReaderTest {
 
 	@Test
 	public void testSingleQuestion() {
-		assertEquals(new QuestionReader(new Scanner("Question?   \n" +
-						"+   correct\n" +
-						"- incorrect\n\n")).next(),
-				new Question("Question?", List.of(
-						new Answer("correct", true),
-						new Answer("incorrect", false))
-				));
+		assertEquals(
+			new Question("Question?", List.of(
+				new Answer("correct", true),
+				new Answer("incorrect", false))),
+			new QuestionReader(new Scanner("Question?   \n" +
+				"+   correct\n" +
+				"- incorrect\n\n")).next()
+		);
 	}
 }

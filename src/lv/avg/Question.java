@@ -1,6 +1,6 @@
 package lv.avg;
 
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.*;
 
 import java.util.List;
 
@@ -9,10 +9,17 @@ public final class Question {
 	private final String question;
 	@NotNull
 	private final List<@NotNull Answer> answers;
+	@Nullable
+	private final String imagePath;
 
 	public Question(@NotNull String question, @NotNull List<Answer> answers) {
-		this.question = question.strip();
+		this(question, answers, null);
+	}
+
+	public Question(@NotNull String question, @NotNull List<Answer> answers, @Nullable String imagePath) {
+		this.question = question.strip() + imagePath;
 		this.answers = answers;
+		this.imagePath = imagePath;
 	}
 
 	@NotNull
@@ -21,7 +28,7 @@ public final class Question {
 	}
 
 	@NotNull
-	public String getQuestion() {
+	public String questionText() {
 		return question;
 	}
 
@@ -43,5 +50,9 @@ public final class Question {
 	@Override
 	public String toString() {
 		return "Question(" + question + ", " + answers.toString() + ")";
+	}
+
+	public String getImagePath() {
+		return imagePath;
 	}
 }

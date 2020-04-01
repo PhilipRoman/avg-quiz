@@ -1,0 +1,28 @@
+Kādas ierīces jāizvēlas, lai noteiktu kāds lādiņa lielums elektriskajā ķēdē izplūst caur vadītāja šķērsgriezuma laukumu?
+- Bīdmērs
++ Ampērmetrs un bīdmērs
+- Ampērmetrs un hronometrs
+- Hronometrs un bīdmērs
+
+Divi rezistori pievienoti baterijai, kā parādīts attēlā.
+Cik lielu V rāda voltmetrs?
+Voltmetra iekšējā pretestība ir bezgalīgi liela.
+Baterijas iekšējo pretestību ignore!
+[data/2.png]
++ 4,0 V
++ 6,0 V
++ 8,0 V
++ 12,0 V
+
+
+Kura no minētajām radiostacijām Rīgā raida ar īsāko viļņu garumu?
++ Radio Skonto 107,2 MHz
+- Radio SWH 105,2 MHz
+- Latvijas radio 90,7 MHz
+- Star FM 106,2 MHz
+
+Trīs auto modeļi vienādā laika intervālā sasniedz vienādu ātrumu. Grafikā attēlota automobiļu ātruma  v  maiņa atkarībā no laika  t.
++ Vislielākais vidējais ātrums ir 3. auto modelim
+- Visiem auto modeļiem ir vienāds vidējais ātrums
+- Vislielākais vidējais ātrums ir 1. auto modelim
+- Vislielākais vidējais ātrums ir 2. auto modelim
