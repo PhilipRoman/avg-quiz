@@ -17,7 +17,7 @@ public final class Question {
 	}
 
 	public Question(@NotNull String question, @NotNull List<Answer> answers, @Nullable String imagePath) {
-		this.question = question.strip() + imagePath;
+		this.question = question.strip();
 		this.answers = answers;
 		this.imagePath = imagePath;
 	}
@@ -37,7 +37,6 @@ public final class Question {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Question question1 = (Question) o;
-		boolean b1, b2;
 		return question.equals(question1.question)
 				&& answers.equals(question1.answers);
 	}
@@ -52,6 +51,7 @@ public final class Question {
 		return "Question(" + question + ", " + answers.toString() + ")";
 	}
 
+	@Nullable
 	public String getImagePath() {
 		return imagePath;
 	}
