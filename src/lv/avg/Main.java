@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.*;
@@ -78,6 +79,7 @@ public class Main extends Application {
 		System.setProperty("prism.lcdtext", "false");
 		this.stage = stage;
 		stage.setTitle("Tests");
+		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom.ico")));
 
 		stage.setScene(createOpeningScene());
 		stage.show();
