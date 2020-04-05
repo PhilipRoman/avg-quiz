@@ -52,7 +52,7 @@ public final class Question {
 	}
 
 	@Nullable
-	public String getImagePath() {
+	public String imagePath() {
 		return imagePath;
 	}
 }

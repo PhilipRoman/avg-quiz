@@ -1,10 +1,10 @@
 package lv.avg;
 
 import javafx.application.Application;
-import javafx.geometry.Orientation;
+import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
+import javafx.scene.image.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.*;
@@ -19,6 +19,8 @@ import java.util.stream.*;
 public class Main extends Application {
 	private static final String STYLESHEET = Main.class.getResource("style.css").toExternalForm();
 	private Stage stage;
+	private static final Image EMPTY_IMAGE = new WritableImage(350, 200);
+	private static final int WIDTH = 800, HEIGHT = 640;
 
 	private Button createAnswerButton(int index) {
 		var button = new Button();
@@ -30,15 +32,18 @@ public class Main extends Application {
 
 	private final ProgressBar progressBar = new ProgressBar();
 	private final Label questionLabel = new Label();
+	private final ImageView questionImage = new ImageView();
+	private final Label questionIndexLabel = new Label();
 
 	{
-		progressBar.setVisible(false);
 		progressBar.getStyleClass().add("progress-bar");
-
 		questionLabel.getStyleClass().add("question-label");
+		questionImage.getStyleClass().add("question-image");
+		questionImage.setImage(EMPTY_IMAGE);
+		questionImage.setPreserveRatio(true);
 	}
 
-	private final List<Button> answerButtons = IntStream.range(0, 5).mapToObj(this::createAnswerButton).collect(Collectors.toList());
+	private final List<Button> answerButtons = IntStream.range(0, 4).mapToObj(this::createAnswerButton).collect(Collectors.toList());
 	private final List<Question> questions = new QuestionReader(Main.class.getResourceAsStream("data/questions.txt")).list();
 	int questionIndex = 0;
 	int score = 0;
@@ -53,12 +58,12 @@ public class Main extends Application {
 		}
 
 		if(++questionIndex == questions.size()) {
-			progressBar.setVisible(false);
 			stage.setScene(createResultScene());
 			return;
 		}
 
 		progressBar.setProgress((questionIndex + 0.5) / questions.size());
+		questionIndexLabel.setText((questionIndex + 1) + "/" + questions.size());
 
 		Question next = questions.get(questionIndex);
 		setCurrentQuestion(next);
@@ -72,6 +77,11 @@ public class Main extends Application {
 			answerButtons.get(i).setText(q.answers().get(i).text());
 			answerButtons.get(i).setVisible(true);
 		}
+		if(q.imagePath() != null) {
+			questionImage.setImage(new Image(Main.class.getResourceAsStream(q.imagePath())));
+		} else {
+			questionImage.setImage(EMPTY_IMAGE);
+		}
 	}
 
 	@Override
@@ -79,6 +89,7 @@ public class Main extends Application {
 		System.setProperty("prism.lcdtext", "false");
 		this.stage = stage;
 		stage.setTitle("Tests");
+		stage.setResizable(false);
 		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom.ico")));
 
 		stage.setScene(createOpeningScene());
@@ -92,21 +103,34 @@ public class Main extends Application {
 	private Scene createQuestionScene() {
 		score = 0;
 		questionIndex = 0;
-		progressBar.setVisible(true);
 		progressBar.setProgress(0.5 / questions.size());
+		questionIndexLabel.setText("1/" + questions.size());
 		Collections.shuffle(questions);
 		questions.stream().map(Question::answers).forEach(Collections::shuffle);
 
-		var vBox = new VBox();
-		vBox.getChildren().addAll(answerButtons);
-		vBox.getStyleClass().add("answer-container");
+		var answerBox = new VBox();
+		answerBox.getChildren().addAll(answerButtons);
+		answerBox.getStyleClass().add("answer-container");
 
-		var pane = new FlowPane(questionLabel, vBox, progressBar);
+		var questionBox = new VBox(
+			questionLabel,
+			questionImage
+		);
+		questionBox.getStyleClass().add("question-container");
+
+		var pane = new FlowPane(
+			new HBox(
+				questionBox,
+				answerBox
+			),
+			progressBar,
+			questionIndexLabel
+		);
 		pane.setOrientation(Orientation.VERTICAL);
 
 		setCurrentQuestion(questions.get(0));
 
-		var scene = new Scene(pane, 720, 640);
+		var scene = new Scene(pane, WIDTH, HEIGHT);
 		scene.getStylesheets().add(STYLESHEET);
 		return scene;
 	}
@@ -118,7 +142,7 @@ public class Main extends Application {
 		var button = new Button("Sākt testu!");
 		button.getStyleClass().add("start-button");
 		pane.getChildren().add(button);
-		var scene = new Scene(pane, 720, 640);
+		var scene = new Scene(pane, WIDTH, HEIGHT);
 		scene.getStylesheets().add(STYLESHEET);
 		button.setOnMouseClicked(event -> {
 			stage.setScene(createQuestionScene());
@@ -149,7 +173,7 @@ public class Main extends Application {
 		button.getStyleClass().add("start-button");
 		pane.getChildren().add(button);
 
-		var scene = new Scene(pane, 720, 640);
+		var scene = new Scene(pane, WIDTH, HEIGHT);
 		scene.getStylesheets().add(STYLESHEET);
 
 		button.setOnMouseClicked(event -> ((Stage) scene.getWindow()).setScene(createQuestionScene()));
