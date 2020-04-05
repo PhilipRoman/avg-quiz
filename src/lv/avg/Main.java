@@ -88,9 +88,13 @@ public class Main extends Application {
 	public void start(Stage stage) {
 		System.setProperty("prism.lcdtext", "false");
 		this.stage = stage;
-		stage.setTitle("Tests");
+		stage.setTitle("Fizikas Tests");
 		stage.setResizable(false);
 		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom.ico")));
+		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom16.ico")));
+		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom32.ico")));
+		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom64.ico")));
+		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom256.ico")));
 
 		stage.setScene(createOpeningScene());
 		stage.show();

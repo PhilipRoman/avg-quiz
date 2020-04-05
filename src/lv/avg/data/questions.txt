@@ -9,10 +9,10 @@ Cik lielu V rāda voltmetrs?
 Voltmetra iekšējā pretestība ir bezgalīgi liela.
 Baterijas iekšējo pretestību ignore!
 [data/2.png]
-+ 4,0 V
-+ 6,0 V
+- 4,0 V
+- 6,0 V
 + 8,0 V
-+ 12,0 V
+- 12,0 V
 
 
 Kura no minētajām radiostacijām Rīgā raida ar īsāko viļņu garumu?
@@ -22,7 +22,23 @@ Kura no minētajām radiostacijām Rīgā raida ar īsāko viļņu garumu?
 - Star FM 106,2 MHz
 
 Trīs auto modeļi vienādā laika intervālā sasniedz vienādu ātrumu. Grafikā attēlota automobiļu ātruma  v  maiņa atkarībā no laika  t.
+[data/4.png]
 + Vislielākais vidējais ātrums ir 3. auto modelim
 - Visiem auto modeļiem ir vienāds vidējais ātrums
 - Vislielākais vidējais ātrums ir 1. auto modelim
 - Vislielākais vidējais ātrums ir 2. auto modelim
+
+Automobilis brauc vienmērīgi pa taisnu šoseju. Pasažieri un bagāža ir sabalansēti tā,
+ka visi četri riteņi iedarbojas uz zemi ar vienādu spēku. Raksturo riteņu spiediena
+spēku uz zemi, ja automobilis strauji bremzē!
+- priekšējo riteņu spiediena spēks samazinās, bet aizmugurējo nemainās
+- priekšējo riteņu spiediena spēks nemainās, bet aizmugurējo palielinās
+- spiediena spēks visu laiku ir nemainīgs
++ priekšējo riteņu spiediena spēks palielinās, bet aizmugurējo samazinās
+
+BMX braucējs izbrauc trasi tā, ka viņa ātrums uzkalnos un ieplakā ir vienāds.
+Salīdzini balsta reakcijas spēkus, kuri darbojas uz braucēju, laika momentos A, B un C.
+- vislielākais laika momentā A
++ vislielākais laika momentā B
+- vislielākais laika momentā C
+- visos laika momentos vienāds
