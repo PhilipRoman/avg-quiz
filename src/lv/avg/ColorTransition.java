@@ -11,12 +11,14 @@ public class ColorTransition extends Transition {
 	private final Region target;
 	private final Color from, to;
 
+	private static final Interpolator SIGMOID = new SigmoidInterpolator(0.13, 0.6);
+
 	{
-		setInterpolator(Interpolator.LINEAR);
+		setInterpolator(SIGMOID);
 	}
 
 	public ColorTransition(Region target, Color from, Color to) {
-		this(target, from, to, Duration.millis(600));
+		this(target, from, to, Duration.millis(1000));
 	}
 
 	public ColorTransition(Region target, Color from, Color to, Duration duration) {
