@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
-public final class Result implements Comparable<Result> {
+public final class Result {
 	private final int correct, total;
 
 	public enum Quality {
@@ -67,10 +67,5 @@ public final class Result implements Comparable<Result> {
 	@Override
 	public int hashCode() {
 		return 31 * correct + total;
-	}
-
-	@Override
-	public int compareTo(@NotNull Result o) {
-		return Double.compare(ratio(), o.ratio());
 	}
 }

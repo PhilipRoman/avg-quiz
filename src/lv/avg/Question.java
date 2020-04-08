@@ -2,7 +2,7 @@ package lv.avg;
 
 import org.jetbrains.annotations.*;
 
-import java.util.List;
+import java.util.*;
 
 public final class Question {
 	@NotNull
@@ -11,6 +11,8 @@ public final class Question {
 	private final List<@NotNull Answer> answers;
 	@Nullable
 	private final String imagePath;
+	@NotNull
+	private final transient Answer correct;
 
 	public Question(@NotNull String question, @NotNull List<Answer> answers) {
 		this(question, answers, null);
@@ -20,6 +22,9 @@ public final class Question {
 		this.question = question.strip();
 		this.answers = answers;
 		this.imagePath = imagePath;
+		if(answers.stream().filter(Answer::isCorrect).count() != 1)
+			throw new IllegalArgumentException("Question must have exactly 1 correct answer");
+		correct = answers.stream().filter(Answer::isCorrect).findAny().orElseThrow();
 	}
 
 	@NotNull
@@ -34,11 +39,11 @@ public final class Question {
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+		if(this == o) return true;
+		if(o == null || getClass() != o.getClass()) return false;
 		Question question1 = (Question) o;
 		return question.equals(question1.question)
-				&& answers.equals(question1.answers);
+			&& answers.equals(question1.answers);
 	}
 
 	@Override
@@ -54,5 +59,10 @@ public final class Question {
 	@Nullable
 	public String imagePath() {
 		return imagePath;
+	}
+
+	@NotNull
+	public Answer correctAnswer() {
+		return correct;
 	}
 }

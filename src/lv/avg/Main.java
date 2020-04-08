@@ -1,12 +1,12 @@
 package lv.avg;
 
 import javafx.application.Application;
-import javafx.geometry.*;
+import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
+import javafx.scene.paint.*;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 
@@ -50,23 +50,34 @@ public class Main extends Application {
 
 	private void submitAnswer(int index) {
 		Question current = questions.get(questionIndex);
-		if(current.answers().get(index).isCorrect()) {
-			System.out.println("Correct");
+		Answer correctAnswer = current.correctAnswer();
+		int correctIndex = current.answers().indexOf(correctAnswer);
+
+		var transition = new ColorTransition(
+			answerButtons.get(correctIndex), Color.valueOf("#333"), Color.GREEN
+		);
+		transition.setOnFinished(e -> {
+			if(++questionIndex == questions.size()) {
+				stage.setScene(createResultScene());
+				return;
+			}
+
+			progressBar.setProgress((questionIndex + 0.5) / questions.size());
+			questionIndexLabel.setText((questionIndex + 1) + "/" + questions.size());
+
+			Question next = questions.get(questionIndex);
+			setCurrentQuestion(next);
+		});
+
+		transition.play();
+
+		if(correctIndex == index) {
 			score++;
 		} else {
-			System.out.println("Incorrect");
+			new ColorTransition(
+				answerButtons.get(index), Color.valueOf("#333"), Color.RED
+			).play();
 		}
-
-		if(++questionIndex == questions.size()) {
-			stage.setScene(createResultScene());
-			return;
-		}
-
-		progressBar.setProgress((questionIndex + 0.5) / questions.size());
-		questionIndexLabel.setText((questionIndex + 1) + "/" + questions.size());
-
-		Question next = questions.get(questionIndex);
-		setCurrentQuestion(next);
 	}
 
 	private void setCurrentQuestion(Question q) {
@@ -89,7 +100,11 @@ public class Main extends Application {
 		System.setProperty("prism.lcdtext", "false");
 		this.stage = stage;
 		stage.setTitle("Fizikas Tests");
-		stage.setResizable(false);
+		stage.setResizable(true);
+		stage.setMinWidth(WIDTH);
+		stage.setMinHeight(HEIGHT);
+		stage.setWidth(WIDTH);
+		stage.setWidth(HEIGHT);
 		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom.ico")));
 		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom16.ico")));
 		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom32.ico")));
