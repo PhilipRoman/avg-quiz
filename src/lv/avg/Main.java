@@ -135,7 +135,8 @@ public class Main extends Application {
 		progressBar.setProgress(0.5 / questions.size());
 		questionIndexLabel.setText("1/" + questions.size());
 		Collections.shuffle(questions);
-		questions.stream().map(Question::answers).forEach(Collections::shuffle);
+		// if you want to shuffle answers:
+		// questions.stream().map(Question::answers).forEach(Collections::shuffle);
 
 		var answerBox = new VBox();
 		answerBox.getChildren().addAll(answerButtons);
