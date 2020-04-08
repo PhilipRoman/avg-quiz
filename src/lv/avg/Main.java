@@ -53,10 +53,20 @@ public class Main extends Application {
 		Answer correctAnswer = current.correctAnswer();
 		int correctIndex = current.answers().indexOf(correctAnswer);
 
+		// lock down buttons while animation is playing
+		answerButtons.forEach(b -> b.setOnMouseClicked(e -> {}));
+
 		var transition = new ColorTransition(
 			answerButtons.get(correctIndex), Color.valueOf("#333"), Color.GREEN
 		);
+
 		transition.setOnFinished(e -> {
+			// activate buttons again
+			for(int i = 0; i < answerButtons.size(); i++) {
+				int answerIndex = i;
+				answerButtons.get(i).setOnMouseClicked(e1 -> submitAnswer(answerIndex));
+			}
+
 			if(++questionIndex == questions.size()) {
 				stage.setScene(createResultScene());
 				return;
