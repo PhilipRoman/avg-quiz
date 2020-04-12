@@ -46,6 +46,10 @@ public final class Session implements Observable {
 		return (index + 0.5) / questions.length;
 	}
 
+	public double nextProgress() {
+		return Math.min(index + 1.5, questions.length) / questions.length;
+	}
+
 	public int index() {
 		return index;
 	}

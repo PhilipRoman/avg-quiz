@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class ColorTransition extends Transition {
+	private static final Duration DURATION = Duration.millis(1000);
 
 	private final Region target;
 	private final Color from, to;
@@ -18,7 +19,7 @@ public class ColorTransition extends Transition {
 	}
 
 	public ColorTransition(Region target, Color from, Color to) {
-		this(target, from, to, Duration.millis(1000));
+		this(target, from, to, DURATION);
 	}
 
 	public ColorTransition(Region target, Color from, Color to, Duration duration) {

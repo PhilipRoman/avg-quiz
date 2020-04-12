@@ -66,3 +66,8 @@ Button:hover {
 	-fx-max-width: 700;
 	-fx-bottom: 0;
 }
+
+.progress-label {
+	-fx-font-weight: bold;
+	-fx-text-fill: #666;
+}

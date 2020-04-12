@@ -31,8 +31,8 @@ public final class QuestionView extends FlowPane {
 	{
 		progressBar.getStyleClass().add("progress-bar");
 		questionLabel.getStyleClass().add("question-label");
+		progressLabel.getStyleClass().add("progress-label");
 		questionImage.getStyleClass().add("question-image");
-		questionImage.setImage(EMPTY_IMAGE);
 		questionImage.setPreserveRatio(true);
 	}
 
@@ -42,9 +42,10 @@ public final class QuestionView extends FlowPane {
 		this.session = session;
 		this.factory = sessionFactory;
 
-		progressBar.progressProperty().bind(
-			Bindings.createDoubleBinding(session::progress, session)
-		);
+		progressBar.setProgress(session.progress());
+//		progressBar.progressProperty().bind(
+//			Bindings.createDoubleBinding(session::progress, session)
+//		);
 		progressLabel.textProperty().bind(
 			Bindings.createObjectBinding(() -> (session.index() + 1) + "/" + session.total(), session)
 		);
@@ -114,6 +115,13 @@ public final class QuestionView extends FlowPane {
 				answerButtons.get(index), Color.valueOf("#333"), Color.RED
 			).play();
 		}
+
+		var progressBarAnimation = new ValueTransition(
+			progressBar::setProgress,
+			session.progress(),
+			session.nextProgress()
+		);
+		progressBarAnimation.play();
 
 		// animation for correct answer (always exists)
 		var transition = new ColorTransition(
