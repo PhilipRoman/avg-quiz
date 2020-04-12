@@ -70,7 +70,7 @@ runtime {
 		installerOptions = ['--win-menu', '--win-shortcut', '--win-upgrade-uuid', projectUUID.toString()]
 		installerName = 'FizikasTests-setup'
 		imageName = 'FizikasTests'
-		imageOptions = ['--icon', 'src/lv/avg/data/atom.ico']
+		imageOptions = ['--icon', 'src/lv/avg/data/atom256.ico']
 	}
 }
 

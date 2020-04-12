@@ -25,10 +25,10 @@ public class Main extends Application {
 		stage.setResizable(true);
 		stage.setMinWidth(WIDTH);
 		stage.setMinHeight(HEIGHT);
-		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom.ico")));
 		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom16.ico")));
 		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom32.ico")));
 		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom64.ico")));
+		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom128.ico")));
 		stage.getIcons().add(new Image(Main.class.getResourceAsStream("data/atom256.ico")));
 		stage.setWidth(WIDTH);
 		stage.setWidth(HEIGHT);
