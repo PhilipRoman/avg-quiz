@@ -55,9 +55,9 @@ dependencies {
 }
 
 shadowJar {
-	minimize {
-		exclude(dependency("org.slf4j:.*:.*"))
-	}
+//	minimize {
+//		exclude(dependency("org.slf4j:.*:.*"))
+//	}
 }
 
 runtime {
