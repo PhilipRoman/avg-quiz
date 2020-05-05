@@ -151,11 +151,11 @@ public final class QuestionView extends FlowPane {
 			nextButton
 		));
 		VBox.setMargin(progressBar, new Insets(50, 0, 0, 0));
-		setMargin(nextButton, new Insets(0, 0, 0, 70));
+		setMargin(nextButton, new Insets(0, 0, 0, 40));
 		setAlignment(Pos.BOTTOM_CENTER);
 		setOrientation(Orientation.HORIZONTAL);
 		setTranslateY(60);
-		setTranslateX(20);
+		setTranslateX(10);
 		nextButton.setTranslateY(-getTranslateY());
 	}
 
