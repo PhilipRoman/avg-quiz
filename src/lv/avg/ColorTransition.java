@@ -7,7 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class ColorTransition extends Transition {
-	private static final Duration DURATION = Duration.millis(1000);
+	private static final Duration DURATION = Duration.millis(800);
 
 	private final Region target;
 	private final Color from, to;
@@ -31,7 +31,7 @@ public class ColorTransition extends Transition {
 
 	@Override
 	protected void interpolate(double frac) {
-		Color c = frac == 1.0d ? from : from.interpolate(to, frac);
+		Color c = from.interpolate(to, frac);
 		target.setBackground(new Background(new BackgroundFill(c, CornerRadii.EMPTY, Insets.EMPTY)));
 	}
 }

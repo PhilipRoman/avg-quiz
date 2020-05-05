@@ -17,7 +17,7 @@ Button {
 }
 
 Button:hover {
-	-fx-background-color: black;
+	-fx-background-color: #444;
 	-fx-cursor: hand;
 }
 
@@ -35,9 +35,8 @@ Button:hover {
 
 .question-container {
 	-fx-max-width: 350;
-	-fx-min-height: 500;
-	-fx-max-height: 500;
-	-fx-alignment: center;
+	-fx-min-width: 350;
+	-fx-alignment: top_center;
 }
 
 .question-label {
@@ -45,8 +44,8 @@ Button:hover {
 	-fx-font-size: 18;
 	-fx-max-width: 350;
 	-fx-min-width: 350;
-	-fx-text-align: justify;
 	-fx-alignment: top_center;
+	-fx-text-alignment: justify;
 }
 
 .question-image {
@@ -61,13 +60,43 @@ Button:hover {
 }
 
 .progress-bar {
-	-fx-accent: #666;
-	-fx-min-width: 700;
-	-fx-max-width: 700;
-	-fx-bottom: 0;
+	-fx-accent: #333;
+	-fx-min-width: 760;
+	-fx-max-width: 760;
+	-fx-background-insets: 0;
+
+	-fx-min-height: 20;
+	-fx-max-height: 20;
 }
 
 .progress-label {
 	-fx-font-weight: bold;
-	-fx-text-fill: #666;
+	-fx-text-fill: black;
+}
+
+.result-reveal {
+	-fx-font-size: 40;
+	-fx-font-weight: bold;
+	-fx-text-alignment: center;
+	-fx-alignment: top_center;
+	-fx-min-width: 280;
+	-fx-max-width: 280;
+}
+
+.next-button {
+	-fx-min-width: 40;
+	-fx-min-height: 70;
+	-fx-max-width: 40;
+	-fx-max-height: 70;
+
+	-fx-background-color: red;
+
+	-fx-cursor: hand;
+}
+
+.square-button {
+	-fx-min-width: 40;
+	-fx-min-height: 40;
+	-fx-max-width: 40;
+	-fx-max-height: 40;
 }

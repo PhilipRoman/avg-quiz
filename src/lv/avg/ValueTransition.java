@@ -14,7 +14,7 @@ public class ValueTransition extends Transition {
 	private final double diff;
 
 	{
-		setInterpolator(Interpolator.EASE_BOTH);
+		setInterpolator(Interpolator.EASE_IN);
 	}
 
 	public ValueTransition(DoubleConsumer property, double from, double to) {

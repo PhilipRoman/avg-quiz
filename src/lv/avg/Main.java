@@ -14,7 +14,7 @@ import java.util.function.*;
 public class Main extends Application {
 	private static final String STYLESHEET = Main.class.getResource("style.css").toExternalForm();
 
-	private static final int WIDTH = 800, HEIGHT = 640;
+	private static final int WIDTH = 1000, HEIGHT = 640;
 
 	@Override
 	public void start(Stage stage) {
