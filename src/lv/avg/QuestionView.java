@@ -168,7 +168,7 @@ public final class QuestionView extends FlowPane {
 
 	private static HBox hBox(Node... nodes) {
 		var box = new HBox(nodes);
-		box.setSpacing(20);
+		box.setSpacing(0);
 		box.setAlignment(Pos.CENTER);
 		return box;
 	}
@@ -197,7 +197,7 @@ public final class QuestionView extends FlowPane {
 		resultReveal.setText(correct ? "Pareizi!" : "Nepareizi");
 		resultReveal.setFill(correct ? GREEN : RED);
 		resultReveal.setVisible(true);
-		hintButton.setVisible(false);
+		hintButton.setDisable(true);
 
 		var progressBarAnimation = new ValueTransition(
 			progressBar::setProgress,

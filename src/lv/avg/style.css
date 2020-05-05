@@ -12,6 +12,8 @@
 
 Button {
 	-fx-background-color: #333;
+/*	-fx-background-color: transparent;*/
+/*	-fx-border-style: solid;*/
 	-fx-text-fill: white;
 	-fx-background-radius: 0;
 }
@@ -79,8 +81,6 @@ Button:hover {
 	-fx-font-weight: bold;
 	-fx-text-alignment: center;
 	-fx-alignment: top_center;
-	-fx-min-width: 280;
-	-fx-max-width: 280;
 }
 
 .next-button {
@@ -99,4 +99,22 @@ Button:hover {
 	-fx-min-height: 40;
 	-fx-max-width: 40;
 	-fx-max-height: 40;
+}
+
+.title-box {
+	-fx-background-color: white;
+}
+
+.title-text {
+	-fx-font-size: 42;
+}
+
+.title-subtext {
+	-fx-font-size: 16;
+}
+
+.title-pane {
+	-fx-text-alignment: center;
+	-fx-background-image: url("/lv/avg/data/physics.jpg");
+	-fx-background-size: cover;
 }
