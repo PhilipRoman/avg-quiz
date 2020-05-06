@@ -60,6 +60,12 @@ shadowJar {
 //	}
 }
 
+task vert(type: JavaExec) {
+	main = mainClassName
+	jvmArgs += ['-Dvert=true']
+	classpath = sourceSets.main.runtimeClasspath
+}
+
 runtime {
 	options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
 

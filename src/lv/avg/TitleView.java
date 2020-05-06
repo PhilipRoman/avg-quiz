@@ -56,5 +56,10 @@ public final class TitleView extends FlowPane {
 		getStyleClass().add("title-pane");
 		getChildren().add(box);
 		
+		if(Boolean.getBoolean("vert")) {
+			setStyle("-fx-background-image: url('/lv/avg/data/math.jpg');");
+		} else {
+			setStyle("-fx-background-image: url('/lv/avg/data/physics.jpg');");
+		}
 	}
 }

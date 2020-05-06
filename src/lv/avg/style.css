@@ -38,7 +38,7 @@ Button:hover {
 .question-container {
 	-fx-max-width: 350;
 	-fx-min-width: 350;
-	-fx-alignment: top_center;
+	-fx-alignment: center;
 }
 
 .question-label {
@@ -76,16 +76,23 @@ Button:hover {
 	-fx-text-fill: black;
 }
 
-.result-reveal {
-	-fx-font-size: 40;
-	-fx-font-weight: bold;
-	-fx-text-alignment: center;
-	-fx-alignment: top_center;
+.aux-text {
+	-fx-min-height: 80;
+	-fx-max-height: 80;
+	-fx-min-width: 250;
+	-fx-max-width: 250;
 }
 
-.aux-text {
-	-fx-min-height: 200;
-	-fx-max-height: 200;
+.result-reveal {
+	-fx-font-size: 50;
+	-fx-font-weight: bold;
+	-fx-text-alignment: right;
+}
+
+.hint-text {
+	-fx-text-alignment: justify;
+	-fx-max-height: 300;
+	-fx-min-width: 350;
 }
 
 .next-button {
@@ -120,6 +127,6 @@ Button:hover {
 
 .title-pane {
 	-fx-text-alignment: center;
-	-fx-background-image: url("/lv/avg/data/physics.jpg");
+	/*-fx-background-image: url("/lv/avg/data/physics.jpg");*/
 	-fx-background-size: cover;
 }

@@ -1,4 +1,5 @@
 Kādas ierīces jāizvēlas, lai noteiktu kāds lādiņa lielums elektriskajā ķēdē izplūst caur vadītāja šķērsgriezuma laukumu?
+? Tev vajag ierīci, kuras mērvienība ir (A).
 - Bīdmērs
 + Ampērmetrs un bīdmērs
 - Ampērmetrs un hronometrs
@@ -9,6 +10,7 @@ Cik lielu V rāda voltmetrs?
 Voltmetra iekšējā pretestība ir bezgalīgi liela.
 Baterijas iekšējo pretestību ignore!
 [data/2.png]
+? Atceries par virknes slēgumu (I = const).
 - 4,0 V
 - 6,0 V
 + 8,0 V
@@ -16,29 +18,153 @@ Baterijas iekšējo pretestību ignore!
 
 
 Kura no minētajām radiostacijām Rīgā raida ar īsāko viļņu garumu?
+? Ar augstāko frekvenci (Hz)!
 + Radio Skonto 107,2 MHz
 - Radio SWH 105,2 MHz
 - Latvijas radio 90,7 MHz
 - Star FM 106,2 MHz
 
-Trīs auto modeļi vienādā laika intervālā sasniedz vienādu ātrumu. Grafikā attēlota automobiļu ātruma  v  maiņa atkarībā no laika  t.
+Trīs auto modeļi vienādā laika intervālā sasniedz vienādu ātrumu. Grafikā attēlota automobiļu ātruma v maiņa atkarībā no laika t.
+? Attēlā lielākais ātrums (v).
 [data/4.png]
 + Vislielākais vidējais ātrums ir 3. auto modelim
 - Visiem auto modeļiem ir vienāds vidējais ātrums
 - Vislielākais vidējais ātrums ir 1. auto modelim
 - Vislielākais vidējais ātrums ir 2. auto modelim
 
+
 Automobilis brauc vienmērīgi pa taisnu šoseju. Pasažieri un bagāža ir sabalansēti tā,
 ka visi četri riteņi iedarbojas uz zemi ar vienādu spēku. Raksturo riteņu spiediena
 spēku uz zemi, ja automobilis strauji bremzē!
+? Spiediena F ir jāpalielinās.
 - priekšējo riteņu spiediena spēks samazinās, bet aizmugurējo nemainās
 - priekšējo riteņu spiediena spēks nemainās, bet aizmugurējo palielinās
 - spiediena spēks visu laiku ir nemainīgs
 + priekšējo riteņu spiediena spēks palielinās, bet aizmugurējo samazinās
 
+
 BMX braucējs izbrauc trasi tā, ka viņa ātrums uzkalnos un ieplakā ir vienāds.
 Salīdzini balsta reakcijas spēkus, kuri darbojas uz braucēju, laika momentos A, B un C.
+[data/6.png]
+? Balsta reakcijas spēks darbojas pretī smaguma spēkam.
 - vislielākais laika momentā A
 + vislielākais laika momentā B
 - vislielākais laika momentā C
 - visos laika momentos vienāds
+
+
+Četras vienādas spuldzes (~220V; 100W) pieslēgtas paralēli 220V elektrotīklam.
+Cik A stipra strāva plūst katrā spuldzē?
+? P=UI
++ 0,45
+- 1,8
+- 0,113
+- 2,2
+
+
+Kuru medicīnas diagnostikas tehnoloģiju izmanto,
+lai sekotu vēl nedzimuša bērniņa veselībai māmiņas ķermenī?
+? USG attēla iegūšanai izmanto augstfrekvences skaņu viļņus – ultraskaņu.
+- magnētisko rezonansi 
++ ultrasonogrāfiju 
+- pozitronu emisijas tomogrāfu
+- datortomogrāfiju
+
+
+Sālot sēnes, tās novāra un ieliek burciņā. Tām pievieno sāli.
+Pēc laika sēnes kļūst sāļas. Kas ir šīs parādības pamatā?
+? Tās cēlonis ir vielas atomu vai molekulu haotiskā kustība.
+[data/9.png]
++ Difūzija
+- siltuma vadīšana 
+- atdzišana 
+- konvekcija
+
+Zibens laikā no mākoņa uz zemi tiek novadīts 30C liels lādiņš.
+Cik liels ir vidējais strāvas stiprums zibens izlādē, ja zibens ilgst 1,0 ms?
+[data/10.png]
+? I = q/t = 20C/0,001s = 20000A = 20kA
+- 30A
+- 30mA
+- 3,0A
++ 30kA
+ 
+Kurš no minētajiem lielumiem ir vektoriāls?
+? Vektors, piemēram, ir ātrums, spēks.
+- kinētiskā enerģija
+- veiktais ceļš
+- mehāniskais darbs
++ impulsa moments
+
+Kā mainās atsperes potenciālā enerģija, ja tās pagarinājums kļūst 4 reizes lielāks?
+[data/12.png]
+? No formulas redzams, ka potenciālā enerģija ir kvadrātiski atkarīga no atsperes pagarinājuma.
+- palielinās 4 reizes
+- samazinās 16 reizes
++ palielinās 16 reizes
+- samazinās 4 reizes
+
+Augstumā H virs zemes kravai ir 21 kJ potenciālā enerģija attiecībā pret zemes virsmu.
+Gaisa pretestības pārvarēšanai tika patērēta 3 kJ liela enerģija.
+Cik liela ir kravas kinētiskā enerģija brīdī, kad krava saduras ar zemi?
+? Ja gaisa pretestības nebūtu, tad augstumā H potenciālajai enerģijai ir jābūt vienādai ar kinētisko enerģiju kravas sadursmes brīdī ar zemi, bet šajā gadījumā ta nav.
+- 24 kJ
+- 3 kJ
++ 18 kJ
+- 21 kJ
+
+Noslēgtā traukā atrodas ksenona gāze. Kā mainās gāzes spiediens,
+ko tā izdara uz trauka sienām, ja gāzi atdzesē?
+? Gāzes spiediens rodas tās daļiņām triecoties pret trauka sienām.
+- nemainās, jo nemainās trauka tilpums
++ samazinās, jo samazinās molekulu kustības vidējais ātrums
+- nemainās, jo nemainās gāzes koncentrācija traukā
+- palielinās, jo mainās gāzes blīvums
+
+Neona un hēlija gāzei ir vienāda temperatūra. Kurš lielums ir vienāds abu gāzu molekulām?
+[data/15.jpg]
+? Vienīgais no nosauktajiem lielumiem, kuru neietekmē gāzes molekulas masa, ir vidējā kinētiskā enerģija.
+- vidējais impulss
+- vidējais ātrums
+- masa
++ vidējā kinētiskā enerģija
+
+Siltuma daudzums vienmēr patvaļīgi pāriet no ķermeņa ...
+? Palīdzēt tev te nevaru...
++ ... ar augstāku temperatūru uz ķermeni ar zemāku temperatūru
+- ... ar lielāku siltumietilpību uz ķermeni ar mazāku siltumietilpību
+- ... ar lielāku siltuma daudzumu uz ķermeni ar mazāku siltuma daudzumu
+- ... ar lielāku siltumvadītspēju uz ķermeni ar mazāku siltumvadītspēju
+
+Ledus temperatūra sākumā ir −15 °𝐶. To sildot, pārvērš ūdenī,
+kura temperatūra ir 72 °𝐶. Cik liela ir temperatūras izmaiņa kelvinos šajā procesā?
+? T = t°C+273
+- 330𝐾
++ 87𝐾
+- 360𝐾
+- 57𝐾
+
+Kā elektriskajā ķēdē jāslēdz ampērmetrs un voltmetrs,
+lai noteiktu kvēlspuldzes kvēldiega pretestību?
+? Lietojot Oma likumu I = U/R redzams, ka, lai noteiktu kvēldiega pretestību, ir nepieciešams zināt strāvas stiprumu I.
++ voltmetrs jāslēdz paralēli spuldzei, bet ampērmetrs virknē
+- spuldzi jāslēdz virknē ar voltmetru un ampērmetru
+- kvēldiega pretestību var noteikt tikai ar pretestības mērītāju
+- spuldze jāslēdz paralēli ampērmetram un voltmetram
+
+Kura no minētajām ir SI induktivitātes mērvienība?
+? Induktivitāte raksturo elektriskās ķēdes magnētiskās īpašības.
+- farads
+- vēbers
+- kulons
++ henrijs
+
+H. Hercs 1888. gadā atklāja Maksvela teorētiski paredzētos viļņus.
+Kurus viļņus atklāja Hercs?
+? Atceries iepriekšējā jautājuma padomu :)
+[data/20.jpg]
+- gamma
++ elektromagnētiskos
+- rentgena
+- skaņas
+

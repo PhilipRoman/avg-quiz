@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.*;
 import java.util.function.*;
 
-public final class QuestionView extends FlowPane {
+public final class QuestionView extends BorderPane {
 	private static final Color GREEN = Color.valueOf("4A0");
 	private static final Color RED = Color.valueOf("E00");
 
@@ -33,11 +33,10 @@ public final class QuestionView extends FlowPane {
 	private final Label questionLabel = new Label();
 	private final ImageView questionImage = new ImageView();
 	private final Label progressLabel = new Label();
-	private final Text auxText = new Text();
+	private final Label auxText = new Label();
 	private final ImageView nextButton = new ImageView(RIGHT_ARROW);
 	private final List<ImageView> icons = new ArrayList<>(4);
 	private final Button hintButton = new Button("?");
-	private final Button invisibleBox = new Button();
 
 	private final BooleanProperty locked = new SimpleBooleanProperty(false);
 
@@ -49,14 +48,12 @@ public final class QuestionView extends FlowPane {
 		questionImage.setPreserveRatio(true);
 		questionImage.setFitWidth(350);
 		auxText.getStyleClass().add("aux-text");
-		auxText.setWrappingWidth(280);
+		// auxText.setWrappingWidth(280);
 		nextButton.getStyleClass().add("next-button");
 		nextButton.setVisible(false);
 		nextButton.setFitWidth(40);
 		nextButton.setFitHeight(130);
 		nextButton.setPickOnBounds(true);
-		invisibleBox.getStyleClass().add("square-button");
-		invisibleBox.setVisible(false);
 		hintButton.getStyleClass().add("square-button");
 	}
 
@@ -99,7 +96,9 @@ public final class QuestionView extends FlowPane {
 
 		hintButton.setOnAction(e -> {
 			auxText.getStyleClass().add("hint-text");
-			auxText.setText(session.currentQuestion().hint());
+			auxText.setText("Padoms: " + session.currentQuestion().hint());
+			hintButton.setVisible(false);
+			((HBox) hintButton.getParent()).getChildren().remove(hintButton);
 		});
 
 		var answerButtonBox = new VBox();
@@ -128,42 +127,30 @@ public final class QuestionView extends FlowPane {
 		);
 		questionBox.setAlignment(Pos.TOP_CENTER);
 		questionBox.getStyleClass().add("question-container");
-		getChildren().addAll(List.of(
+
+		setCenter(hBox(
+			questionBox,
 			vBox(
 				hBox(
-					questionBox,
-					vBox(
-						hBox(
-							answerButtonBox
-						),
-						Boolean.getBoolean("vert") ? hBox(
-							invisibleBox,
-							hintButton
-						) : hBox(
-							invisibleBox,
-							auxText,
-							hintButton
-						)
-					)
+					answerButtonBox
 				),
-				progressBar,
-				progressLabel
-			),
+				Boolean.getBoolean("vert") ? rBox() : hBox(
+					auxText,
+					hintButton
+				)
+			)
+		));
+		setBottom(vBox(
+			progressBar,
+			progressLabel
+		));
+		setRight(hBox(
 			nextButton
 		));
-		if(!Boolean.getBoolean("vert")) {
-			VBox.setMargin(progressBar, new Insets(50, 0, 0, 0));
-			setMargin(nextButton, new Insets(0, 0, 0, 40));
-			setTranslateX(10);
-		}
-		setAlignment(Pos.BOTTOM_CENTER);
-		setOrientation(Orientation.HORIZONTAL);
-		setTranslateY(60);
-		nextButton.setTranslateY(-getTranslateY());
 
-		if(Boolean.getBoolean("vert")) {
-			hintButton.setVisible(false);
-		}
+		hintButton.setTranslateX(40);
+
+		setPadding(new Insets(0, 0, 20, 20));
 	}
 
 	private static VBox vBox(Node... nodes) {
@@ -175,8 +162,15 @@ public final class QuestionView extends FlowPane {
 
 	private static HBox hBox(Node... nodes) {
 		var box = new HBox(nodes);
-		box.setSpacing(0);
+		box.setSpacing(20);
 		box.setAlignment(Pos.CENTER);
+		return box;
+	}
+
+	private static HBox rBox(Node... nodes) {
+		var box = new HBox(nodes);
+		box.setSpacing(20);
+		box.setAlignment(Pos.CENTER_RIGHT);
 		return box;
 	}
 
@@ -214,8 +208,10 @@ public final class QuestionView extends FlowPane {
 
 		auxText.getStyleClass().add("result-reveal");
 		auxText.setText(correct ? "Pareizi!" : "Nepareizi");
-		auxText.setFill(correct ? GREEN : RED);
-		hintButton.setDisable(true);
+		// auxText.setFill(correct ? GREEN : RED);
+		auxText.setStyle("-fx-font-size: 40; -fx-text-alignment: right; -fx-text-fill: " + (correct ? "green" : "red") + ";");
+		// auxText.setTranslateX(80);
+		hintButton.setVisible(false);
 
 		// animation for chosen answer
 		var transition = new ColorTransition(
