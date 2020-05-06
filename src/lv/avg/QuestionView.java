@@ -37,6 +37,7 @@ public final class QuestionView extends BorderPane {
 	private final ImageView nextButton = new ImageView(RIGHT_ARROW);
 	private final List<ImageView> icons = new ArrayList<>(4);
 	private final Button hintButton = new Button("?");
+	private final HBox auxBox = rBox();
 
 	private final BooleanProperty locked = new SimpleBooleanProperty(false);
 
@@ -98,8 +99,13 @@ public final class QuestionView extends BorderPane {
 			auxText.getStyleClass().add("hint-text");
 			auxText.setText("Padoms: " + session.currentQuestion().hint());
 			hintButton.setVisible(false);
-			((HBox) hintButton.getParent()).getChildren().remove(hintButton);
+			auxBox.getChildren().clear();
+			auxBox.getChildren().add(auxText);
 		});
+
+		if(!Boolean.getBoolean("vert")) {
+			auxBox.getChildren().add(hintButton);
+		}
 
 		var answerButtonBox = new VBox();
 		for(int i = 0; i < answerButtons.size(); i++) {
@@ -134,10 +140,7 @@ public final class QuestionView extends BorderPane {
 				hBox(
 					answerButtonBox
 				),
-				Boolean.getBoolean("vert") ? rBox() : hBox(
-					auxText,
-					hintButton
-				)
+				auxBox
 			)
 		));
 		setBottom(vBox(
@@ -148,9 +151,7 @@ public final class QuestionView extends BorderPane {
 			nextButton
 		));
 
-		hintButton.setTranslateX(40);
-
-		setPadding(new Insets(0, 0, 20, 20));
+		setPadding(new Insets(20, 20, 0, 20));
 	}
 
 	private static VBox vBox(Node... nodes) {
@@ -171,6 +172,7 @@ public final class QuestionView extends BorderPane {
 		var box = new HBox(nodes);
 		box.setSpacing(20);
 		box.setAlignment(Pos.CENTER_RIGHT);
+		box.setStyle("-fx-min-height: 80; -fx-max-height: 80;");
 		return box;
 	}
 
@@ -206,12 +208,13 @@ public final class QuestionView extends BorderPane {
 		for(ImageView icon : icons)
 			icon.setVisible(true);
 
+		auxBox.getChildren().clear();
+		auxBox.getChildren().add(auxText);
 		auxText.getStyleClass().add("result-reveal");
 		auxText.setText(correct ? "Pareizi!" : "Nepareizi");
 		// auxText.setFill(correct ? GREEN : RED);
 		auxText.setStyle("-fx-font-size: 40; -fx-text-alignment: right; -fx-text-fill: " + (correct ? "green" : "red") + ";");
 		// auxText.setTranslateX(80);
-		hintButton.setVisible(false);
 
 		// animation for chosen answer
 		var transition = new ColorTransition(

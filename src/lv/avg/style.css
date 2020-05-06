@@ -79,20 +79,19 @@ Button:hover {
 .aux-text {
 	-fx-min-height: 80;
 	-fx-max-height: 80;
-	-fx-min-width: 250;
-	-fx-max-width: 250;
+	-fx-min-width: 350;
+	-fx-max-width: 350;
 }
 
 .result-reveal {
 	-fx-font-size: 50;
 	-fx-font-weight: bold;
-	-fx-text-alignment: right;
+	-fx-text-alignment: center;
 }
 
 .hint-text {
 	-fx-text-alignment: justify;
 	-fx-max-height: 300;
-	-fx-min-width: 350;
 }
 
 .next-button {

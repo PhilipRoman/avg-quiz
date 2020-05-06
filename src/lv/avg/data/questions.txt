@@ -6,9 +6,9 @@ Kādas ierīces jāizvēlas, lai noteiktu kāds lādiņa lielums elektriskajā �
 - Hronometrs un bīdmērs
 
 Divi rezistori pievienoti baterijai, kā parādīts attēlā.
-Cik lielu V rāda voltmetrs?
+Cik lielu U rāda voltmetrs?
 Voltmetra iekšējā pretestība ir bezgalīgi liela.
-Baterijas iekšējo pretestību ignore!
+Baterijas iekšējo pretestību ignorē!
 [data/2.png]
 ? Atceries par virknes slēgumu (I = const).
 - 4,0 V

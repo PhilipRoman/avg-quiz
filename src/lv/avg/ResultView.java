@@ -64,7 +64,7 @@ public final class ResultView extends FlowPane {
 		s.append(" no ");
 		s.append(result.total());
 		s.append(", atzīme: ");
-		s.append((int) Math.max(1, result.percent() / 10));
+		s.append((int) Math.round(Math.max(1, result.percent() / 10)));
 		s.append("\n");
 
 		try {
