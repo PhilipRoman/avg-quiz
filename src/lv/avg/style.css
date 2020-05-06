@@ -83,6 +83,11 @@ Button:hover {
 	-fx-alignment: top_center;
 }
 
+.aux-text {
+	-fx-min-height: 200;
+	-fx-max-height: 200;
+}
+
 .next-button {
 	-fx-min-width: 40;
 	-fx-min-height: 70;

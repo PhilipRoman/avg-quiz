@@ -7,6 +7,8 @@ import java.util.*;
 public final class Result {
 	private final int correct, total;
 
+	private final Login login;
+
 	public enum Quality {
 		BAD("red"), AVERAGE("orange"), GOOD("lime"), EXCELLENT("forestgreen");
 		private final String color;
@@ -27,7 +29,8 @@ public final class Result {
 		0.9d, Quality.EXCELLENT
 	));
 
-	Result(int correct, int total) {
+	Result(Login login, int correct, int total) {
+		this.login = login;
 		if(total <= 0)
 			throw new IllegalArgumentException("Total number of answers must be greater than 0");
 		if(correct > total)
@@ -56,16 +59,20 @@ public final class Result {
 		return total;
 	}
 
+	Login login() {
+		return login;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if(this == o) return true;
 		if(o == null || getClass() != o.getClass()) return false;
 		Result result = (Result) o;
-		return correct == result.correct && total == result.total;
+		return correct == result.correct && total == result.total && login.equals(result.login);
 	}
 
 	@Override
 	public int hashCode() {
-		return 31 * correct + total;
+		return (31 * correct + total) ^ login.hashCode();
 	}
 }

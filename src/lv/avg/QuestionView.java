@@ -25,7 +25,7 @@ public final class QuestionView extends FlowPane {
 	/**
 	 * The factory that was used to obtain a session
 	 */
-	private final Supplier<Session> factory;
+	private final Function<Login, Session> factory;
 
 	private final Session session;
 
@@ -33,7 +33,7 @@ public final class QuestionView extends FlowPane {
 	private final Label questionLabel = new Label();
 	private final ImageView questionImage = new ImageView();
 	private final Label progressLabel = new Label();
-	private final Text resultReveal = new Text();
+	private final Text auxText = new Text();
 	private final ImageView nextButton = new ImageView(RIGHT_ARROW);
 	private final List<ImageView> icons = new ArrayList<>(4);
 	private final Button hintButton = new Button("?");
@@ -45,15 +45,16 @@ public final class QuestionView extends FlowPane {
 		progressBar.getStyleClass().add("progress-bar");
 		questionLabel.getStyleClass().add("question-label");
 		progressLabel.getStyleClass().add("progress-label");
-		resultReveal.getStyleClass().add("result-reveal");
-		resultReveal.setWrappingWidth(280);
+		questionImage.getStyleClass().add("question-image");
+		questionImage.setPreserveRatio(true);
+		questionImage.setFitWidth(350);
+		auxText.getStyleClass().add("aux-text");
+		auxText.setWrappingWidth(280);
 		nextButton.getStyleClass().add("next-button");
 		nextButton.setVisible(false);
 		nextButton.setFitWidth(40);
 		nextButton.setFitHeight(130);
 		nextButton.setPickOnBounds(true);
-		questionImage.getStyleClass().add("question-image");
-		questionImage.setPreserveRatio(true);
 		invisibleBox.getStyleClass().add("square-button");
 		invisibleBox.setVisible(false);
 		hintButton.getStyleClass().add("square-button");
@@ -61,7 +62,7 @@ public final class QuestionView extends FlowPane {
 
 	private final List<Button> answerButtons = new ArrayList<>();
 
-	public QuestionView(Session session, Supplier<Session> sessionFactory) {
+	public QuestionView(Session session, Function<Login, Session> sessionFactory) {
 		this.session = session;
 		this.factory = sessionFactory;
 
@@ -87,21 +88,18 @@ public final class QuestionView extends FlowPane {
 			b.textProperty().bind(
 				Bindings.createObjectBinding(() -> session.currentQuestion().answers().get(answerIndex).text(), session)
 			);
-			b.setOnMouseClicked(e -> {
+			b.setOnAction(e -> {
 				if(!locked.get()) submitAnswer(answerIndex);
 			});
 
 			answerButtons.add(b);
 		}
 
-		nextButton.setOnMouseClicked(e -> {
-			if(session.hasNext()) {
-				session.goToNext();
-				getScene().setRoot(new QuestionView(session, factory));
-			} else {
-				var result = new Result(session.correct(), session.total());
-				getScene().setRoot(new ResultView(result, factory));
-			}
+		nextButton.setOnMouseClicked(e -> goToNextQuestion());
+
+		hintButton.setOnAction(e -> {
+			auxText.getStyleClass().add("hint-text");
+			auxText.setText(session.currentQuestion().hint());
 		});
 
 		var answerButtonBox = new VBox();
@@ -138,9 +136,12 @@ public final class QuestionView extends FlowPane {
 						hBox(
 							answerButtonBox
 						),
-						hBox(
+						Boolean.getBoolean("vert") ? hBox(
 							invisibleBox,
-							resultReveal,
+							hintButton
+						) : hBox(
+							invisibleBox,
+							auxText,
 							hintButton
 						)
 					)
@@ -150,13 +151,19 @@ public final class QuestionView extends FlowPane {
 			),
 			nextButton
 		));
-		VBox.setMargin(progressBar, new Insets(50, 0, 0, 0));
-		setMargin(nextButton, new Insets(0, 0, 0, 40));
+		if(!Boolean.getBoolean("vert")) {
+			VBox.setMargin(progressBar, new Insets(50, 0, 0, 0));
+			setMargin(nextButton, new Insets(0, 0, 0, 40));
+			setTranslateX(10);
+		}
 		setAlignment(Pos.BOTTOM_CENTER);
 		setOrientation(Orientation.HORIZONTAL);
 		setTranslateY(60);
-		setTranslateX(10);
 		nextButton.setTranslateY(-getTranslateY());
+
+		if(Boolean.getBoolean("vert")) {
+			hintButton.setVisible(false);
+		}
 	}
 
 	private static VBox vBox(Node... nodes) {
@@ -180,31 +187,35 @@ public final class QuestionView extends FlowPane {
 	}
 
 	private void submitAnswer(int index) {
-
-		// lock down buttons while animations are playing
-		locked.setValue(true);
-
-		boolean correct = session.submitAnswer(index);
-
-		for(Button b : answerButtons) {
-			b.addEventFilter(MouseEvent.ANY, Event::consume);
-			b.setCursor(Cursor.DEFAULT);
-		}
-
-		for(ImageView icon : icons)
-			icon.setVisible(true);
-
-		resultReveal.setText(correct ? "Pareizi!" : "Nepareizi");
-		resultReveal.setFill(correct ? GREEN : RED);
-		resultReveal.setVisible(true);
-		hintButton.setDisable(true);
-
 		var progressBarAnimation = new ValueTransition(
 			progressBar::setProgress,
 			session.progress(),
 			session.nextProgress()
 		);
 		progressBarAnimation.play();
+
+		boolean correct = session.submitAnswer(index);
+
+		if(Boolean.getBoolean("vert")) {
+			goToNextQuestion();
+			return;
+		}
+
+		for(Button b : answerButtons) {
+			b.addEventFilter(MouseEvent.ANY, Event::consume);
+			b.setCursor(Cursor.DEFAULT);
+		}
+
+		// lock down buttons while animations are playing
+		locked.setValue(true);
+
+		for(ImageView icon : icons)
+			icon.setVisible(true);
+
+		auxText.getStyleClass().add("result-reveal");
+		auxText.setText(correct ? "Pareizi!" : "Nepareizi");
+		auxText.setFill(correct ? GREEN : RED);
+		hintButton.setDisable(true);
 
 		// animation for chosen answer
 		var transition = new ColorTransition(
@@ -216,4 +227,13 @@ public final class QuestionView extends FlowPane {
 		transition.play();
 	}
 
+	private void goToNextQuestion() {
+		if(session.hasNext()) {
+			session.goToNext();
+			getScene().setRoot(new QuestionView(session, factory));
+		} else {
+			var result = new Result(session.login(), session.correct(), session.total());
+			getScene().setRoot(new ResultView(result, factory));
+		}
+	}
 }

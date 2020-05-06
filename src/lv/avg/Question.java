@@ -12,16 +12,19 @@ public final class Question {
 	@Nullable
 	private final String imagePath;
 	@NotNull
+	private final String hint;
+	@NotNull
 	private final transient Answer correct;
 
 	public Question(@NotNull String question, @NotNull List<Answer> answers) {
-		this(question, answers, null);
+		this(question, answers, "", null);
 	}
 
-	public Question(@NotNull String question, @NotNull List<Answer> answers, @Nullable String imagePath) {
+	public Question(@NotNull String question, @NotNull List<Answer> answers, @NotNull String hint, @Nullable String imagePath) {
 		this.question = question.strip();
 		this.answers = answers;
-		this.imagePath = imagePath;
+		this.imagePath = imagePath == null ? null : imagePath.strip();
+		this.hint = hint.strip();
 		if(answers.stream().filter(Answer::isCorrect).count() != 1)
 			throw new IllegalArgumentException("Question must have exactly 1 correct answer");
 		correct = answers.stream().filter(Answer::isCorrect).findAny().orElseThrow();
@@ -59,6 +62,11 @@ public final class Question {
 	@Nullable
 	public String imagePath() {
 		return imagePath;
+	}
+
+	@Nullable
+	public String hint() {
+		return hint;
 	}
 
 	@NotNull

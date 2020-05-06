@@ -36,6 +36,7 @@ public final class QuestionReader implements Iterator<Question> {
 
 		String question = queue.removeFirst();
 		String imagePath = null;
+		String hint = "";
 
 		ArrayList<Answer> answers = new ArrayList<>(4);
 		while(!queue.isEmpty()) {
@@ -48,12 +49,14 @@ public final class QuestionReader implements Iterator<Question> {
 				answers.add(new Answer(line.substring(1), false));
 			else if(line.startsWith("[") && line.endsWith("]"))
 				imagePath = line.substring(1, line.length() - 1);
+			else if(line.startsWith("?"))
+				hint = line.substring(1);
 			else if(answers.isEmpty())
 				question += ' ' + line;
 			else
 				throw new IllegalArgumentException("Bad data format: " + line);
 		}
-		return new Question(question, answers, imagePath);
+		return new Question(question, answers, hint, imagePath);
 	}
 
 	private void skipEmpty() {

@@ -9,17 +9,27 @@ import java.util.*;
 public final class Session implements Observable {
 	private static final Logger log = LoggerFactory.getLogger(Session.class);
 
+	private final Login login;
 	private final Question[] questions;
 	private int index = 0;
 	private int correct = 0, total;
 
 	public Session(List<Question> questions) {
+		this(questions, Login.anonymous());
+	}
+
+	public Session(List<Question> questions, Login login) {
 		this.questions = questions.toArray(new Question[0]);
 		total = questions.size();
+		this.login = login;
 	}
 
 	public Question currentQuestion() {
 		return questions[index];
+	}
+
+	public Login login() {
+		return login;
 	}
 
 	public void goToNext() {

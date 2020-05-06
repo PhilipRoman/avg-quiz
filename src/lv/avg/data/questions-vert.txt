@@ -1,0 +1,133 @@
+﻿Izvēlies pareizo apgalvojumu.
++ Kad svārstību kontūrā strāvas stiprums spolē ir sasniedzis maksimālo vērtību, spriegums kontūra kondensatorā ir vienāds ar nulli.
+- Kad svārstību kontūrā spriegums kondensatorā ir sasniedzis maksimālo vērtību tad arī strāvas stiprums spolē ir maksimālais.
+- Kad svārstību kontūrā spriegums kondensatorā ir sasniedzis maksimālo vērtību, strāvas stiprums spolē ir vienāds ar pusi no maksimālās vērtības.
+- Kad svārstību kontūrā strāvas stiprums spolē ir sasniedzis maksimālo vērtību arī spriegums kontūra kondensatorā ir maksimālais.
+
+Izvēlies pareizo apgalvojumu.
+- Svārstību kontūra maksimālās elektriskās enerģijas un maksimālās magnētiskās enerģijas attiecība nav noteikta.
+- Svārstību kontūra maksimālā elektriskā enerģija ir lielāka par maksimālo magnētisko enerģiju.
++ Svārstību kontūra maksimālā elektriskā enerģija ir vienāda ar maksimālo magnētisko enerģiju.
+- Svārstību kontūra maksimālā elektriskā enerģija ir mazāka par maksimālo magnētisko enerģiju.
+
+Izvēlies pareizo apgalvojumu.
+[data/vert3.jpg]
++ Apgaismojumu mēra luksos.
+- Apgaismojumu mēra lumenos.
+- Apgaismojumu mēra kandelās.
+- Apgaismojumu mēra kandelās uz kvadrātmetru.
+
+Izvēlies pareizo apgalvojumu.
+- Gaismas avota stiprumu iegūst gaismas plūsmu atņemot telpisko leņķi.
+- Gaismas avota stiprumu iegūst gaismas plūsmu sareizinot ar telpisko leņķi.
++ Gaismas avota stiprumu iegūst gaismas plūsmu izdalot ar telpisko leņķi.
+- Gaismas avota stiprumu iegūst gaismas plūsmu saskaitot ar telpisko leņķi.
+
+Izvēlies pareizo apgalvojumu.
+- Apgaismojums ir gaismas plūsma uz vienu telpiskā leņķa vienību.
++ Apgaismojums ir gaismas plūsma uz vienu laukuma vienību.
+- Apgaismojums ir gaismas stiprums uz vienu telpiskā leņķa vienību.
+- Apgaismojums ir gaismas stiprums uz vienu laukuma vienību.
+
+Gaismas stara krišanas leņķis pret spoguli ir  alfa, kurš zīmējumā nav attēlots.
+Gaismas stara krišanas leņķi palielina par  13 grādiem .
+Par cik grādiem izmainās leņķis starp krītošo un atstaroto staru?
+[data/vert6.png]
+- Pamazinās par 13 grādiem.
++ Palielinās par 26 grādiem.
+- Palielinās par 13 grādiem.
+- Pamazinās par 26 grādiem.
+
+Ķermeni no Zemes virsmas paceļ 3 Zemes rādiusu augstumā H =3 R.
+Cik reizes samazināsies brīvās krišanas paātrinājums?
+[data/vert7.png]
+- 8
+- 6
++ 16
+- 3
+
+Tūristu autobusu maršrutā Sigulda-Rīga var uzskatīt par materiālu punktu.
+- Apgalvojums ir kļūdains.
++ Apgalvojums ir patiess.
+- Apgalvojums ir daļēji pareizs.
+- Apgalvojums ir daļēji nepareizs.
+
+Temperatūra ir vektoriāls lielums.
+[data/vert9.png]
++ Apgalvojums ir kļūdains.
+- Apgalvojums ir patiess.
+- Apgalvojums ir daļēji pareizs.
+- Apgalvojums ir daļēji nepareizs.
+
+Izvēlies pareizo apgalvojumu. 
+- Palielinoties attālumam no gaismas avota līdz virsmai 2 reizes, apgaismojums samazinās 2 reizes.
+- Palielinoties attālumam no gaismas avota līdz virsmai 2 reizes, apgaismojums palielinās 4 reizes.
+- Palielinoties attālumam no gaismas avota līdz virsmai 2 reizes, apgaismojums samazinās 2 reizes.
++ Palielinoties attālumam no gaismas avota līdz virsmai 2 reizes, apgaismojums samazinās 4 reizes.
+
+Zeme vistālāk no Saules atrodas ziemā.
+[data/vert11.jpg]
++ Apgalvojums ir kļūdains.
+- Apgalvojums ir patiess.
+- Apgalvojums ir daļēji pareizs.
+- Apgalvojums ir daļēji nepareizs.
+
+Pirmais kosmiskais ātrums Zemes tuvumā ir aptuveni 7,9 m/s.
++ Apgalvojums ir kļūdains.
+- Apgalvojums ir patiess.
+- Apgalvojums ir daļēji pareizs.
+- Apgalvojums ir daļēji nepareizs.
+
+Vai iespējams uzlādēt plastmasas lineālu ar elektrisko lādiņu, kura lielums ir 1,22⋅10−18 C?
+- Jā, ir.
++ Nē,nav.
+- Kuloni ir nepareicā mērcienība.
+- Var, bet nav jēgas.
+
+Kura no formulām ļauj pareizi aprēķināt elektriskā lauka veikto darbu, pārvietojot lādiņu?
+- A=qwErt-Q
++ A=qU
+- A=U/q
+- A=q/U
+
+Nosaki, kas fizikā ir dzelzs!
+[data/vert15.jpg]
++ Viela 
+- Priekšmets 
+- Parādība 
+- Ķermenis
+
+Kura no minētajām īpašībām piemīt gāzveida vielai?
+- Saglabā savu formu.
+- Ir noteikts tilpums.
+- Grūti saspiest.
++ Izplūst pa visu pieejamo tilpumu.
+
+Kura no minētajām ir SI induktivitātes mērvienība?
+- Farads
+- Vēbers
+- Kulons
++ Henrijs
+
+Ķermenis atrodas 35 cm attālumā no izkliedētājlēcas, kuras fokusa attālums ir 21 cm.
+Kurā atbildē ir pareizi aprakstīts iegūtais attēls?
+[data/vert18.png]
+- Attēls ir reāls un mazāks par priekšmetu.
++ Attēls ir mazāks par priekšmetu un šķietams.
+- Attēls ir reāls un mazāks par priekšmetu.
+- Attēls ir šķietams un lielāks par priekšmetu.
+
+Neona un hēlija gāzei ir vienāda temperatūra.
+Kurš lielums ir vienāds abu gāzu molekulām?
+- Vidējais impulss
+- Vidējais ātrums
+- Masa
++ Vidējā kinētiskā enerģija
+
+Attēlā parādīta četru ķermeņu A, B, C un D masas atkarība no to tilpuma.
+Kuram ķermenim ir mazākais blīvums?
+[data/vert20.png]
+- C
++ D
+- A
+- B
